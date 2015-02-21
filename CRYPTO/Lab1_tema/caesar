@@ -1,0 +1,2 @@
+#!/bin/bash
+caesar_src/caesar_s-x86_64.run --nox11
