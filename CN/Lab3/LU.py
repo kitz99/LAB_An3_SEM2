@@ -1,18 +1,17 @@
-import numpy
+import decimal
 
 def lu(m):
-	A = numpy.zeros((m, m))
+	A = [[decimal.Decimal(0.0)] * m for _ in range(m)]
+	for i in range(m):
+		for j in range(m):
+			A[i][j] = decimal.Decimal(1.0) / (decimal.Decimal(i * 1.0) + decimal.Decimal(j * 1.0) + decimal.Decimal(1.0)) 
 
-	for i in range(0,m):
-		for j in range(0, m):
-			A[i][j] = 1.0 / (i + j + 1) 
+	L = [[decimal.Decimal(0.0)] * m for _ in range(m)]
+	U = [[decimal.Decimal(0.0)] * m for _ in range(m)]
+	Y = [decimal.Decimal(0.0) for _ in range(m)]
+	X = [decimal.Decimal(0.0) for _ in range(m)]
 
-	L = numpy.zeros((m, m))
-	U = numpy.zeros((m, m))
-	Y = [0.0 for i in range(m)]
-	X = [0.0 for i in range(m)]
-
-	B = [1.0 for i in range(m)]
+	B = [decimal.Decimal(1.0) for _ in range(m)]
 
 	for i in range(0, m):
 		L[i][0] = A[i][0]
@@ -44,9 +43,17 @@ def lu(m):
 		for k in range(i+1, m):
 			X[i] -= U[i][k] * X[k]
 
-	for el in X:
-		print "%.15f" % el   # prints 3.142
+	for elem in X:
+		print elem
 
 if __name__ == '__main__':
-	x = raw_input('n=')
-	lu(int(x))
+	x = int(raw_input('n='))
+	if x == 5:
+		p = 40
+	elif x == 10:
+		p = 60
+	else:
+		p = 100
+
+	decimal.getcontext().prec = p
+	lu(x)

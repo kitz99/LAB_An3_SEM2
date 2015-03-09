@@ -57,11 +57,11 @@ def QR(A, B, n):
 if __name__ == '__main__':
 	n = int(input('n='))
 	if n == 5:
-		p = 20
-	elif n == 10:
-		p = 40
-	else:
 		p = 60
+	elif n == 10:
+		p = 100
+	else:
+		p = 180
 	decimal.getcontext().prec = p
 
 	A = [[decimal.Decimal(0.0)] * n for _ in range(n)]
