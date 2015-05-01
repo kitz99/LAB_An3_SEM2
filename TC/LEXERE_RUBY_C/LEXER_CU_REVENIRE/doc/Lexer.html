@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Lexer - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_escape">#add_escape</a>
+    
+    <li ><a href="#method-i-getToken">#getToken</a>
+    
+    <li ><a href="#method-i-load_buffer">#load_buffer</a>
+    
+    <li ><a href="#method-i-must_clear">#must_clear</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Lexer">
+  <h1 id="class-Lexer" class="class">
+    class Lexer
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-automat" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">automat</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-current_word" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">current_word</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">line</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-poz" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">poz</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-symbol_table" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">symbol_table</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-type_analyzer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">type_analyzer</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lexer.rb, line 13</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+            <span class="ruby-ivar">@poz</span> = <span class="ruby-value">0</span>
+            <span class="ruby-ivar">@line</span> = <span class="ruby-value">1</span>
+            <span class="ruby-ivar">@buffer</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+            <span class="ruby-ivar">@current_word</span> = <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-ivar">@automat</span> = <span class="ruby-constant">DFA</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+<span class="ruby-ivar">@type_analyzer</span> = <span class="ruby-constant">TypeAnalyzer</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-ivar">@symbol_table</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-getToken" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getToken</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getToken-source">
+            <pre><span class="ruby-comment"># File lexer.rb, line 23</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">getToken</span>()
+  <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">reset_dfa</span> <span class="ruby-comment"># Resetez automatul</span>
+  <span class="ruby-identifier">states</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-comment"># fac o lista in care sa tin starile prin care am trecut</span>
+
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@poz</span> <span class="ruby-comment"># Daca inca mai exista caractere in buffer</span>
+                      <span class="ruby-identifier">current_char</span> = <span class="ruby-ivar">@buffer</span>[<span class="ruby-ivar">@poz</span>] <span class="ruby-comment"># citesc caracterul de la pozitia curenta</span>
+                      <span class="ruby-ivar">@poz</span> = <span class="ruby-ivar">@poz</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">line</span>(<span class="ruby-identifier">current_char</span>) <span class="ruby-comment"># stabilesc pozitia curenta in fisier</span>
+              <span class="ruby-keyword">else</span>
+                      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># nu mai exista caractere in buffer</span>
+  <span class="ruby-keyword">end</span>
+
+              <span class="ruby-identifier">eof</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-identifier">state</span> = <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_tranz</span>(<span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">current_state</span>, <span class="ruby-identifier">current_char</span>) <span class="ruby-comment"># fac miscare in DFA cu carcterul citit</span>
+  <span class="ruby-identifier">aux</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">!=</span> <span class="ruby-value">-1</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">eof</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> <span class="ruby-comment"># cat timp nu s-a ajuns in stare de eroare sau nu s-a sfarsit bufferul</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+                        <span class="ruby-ivar">@current_word</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_char</span> <span class="ruby-comment"># adaug caracterul citit la cuvantul curent</span>
+      <span class="ruby-identifier">aux</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_char</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">must_clear</span>(<span class="ruby-identifier">state</span>)
+      <span class="ruby-ivar">@current_word</span> = <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-keyword">end</span>
+
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@buffer</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@poz</span> <span class="ruby-comment"># daca se mai poate citi din buffer</span>
+                              <span class="ruby-identifier">current_char</span> = <span class="ruby-ivar">@buffer</span>[<span class="ruby-ivar">@poz</span>] <span class="ruby-comment">#citesc caracter din buffer</span>
+                              <span class="ruby-ivar">@poz</span> = <span class="ruby-ivar">@poz</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-comment">#incrementez pozitia</span>
+      <span class="ruby-identifier">line</span>(<span class="ruby-identifier">current_char</span>) <span class="ruby-comment"># actualizez pozitia in fisier</span>
+      <span class="ruby-identifier">states</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">state</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-comment"># pastrez starea din care plec, ca sa pot eventual sa ma intorc daca e cazul</span>
+                              <span class="ruby-identifier">state</span> = <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">make_tranz</span>(<span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">current_state</span>, <span class="ruby-identifier">current_char</span>) <span class="ruby-comment"># fac miscare cu caracterul citit in automat plecand din starea curenta</span>
+                      <span class="ruby-keyword">else</span>
+                              <span class="ruby-identifier">eof</span> = <span class="ruby-keyword">true</span>
+                      <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># while se termina in momentul in care s-a terminat bufferul sau s-a ajuns in stare de eroare</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">eof</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-comment"># daca s-a terminat fisierul, exista doua posib: starea in care s-a ajuns sa fie de eroare sau nu</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span> <span class="ruby-comment"># daca starea in care s-a ajuns este de eroare, ma intorc pana in ultima stare finala intalnita</span>
+      <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">st</span> = <span class="ruby-identifier">states</span>.<span class="ruby-identifier">pop</span>()
+        <span class="ruby-ivar">@poz</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">final?</span>(<span class="ruby-identifier">st</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@current_word</span>)
+             <span class="ruby-ivar">@symbol_table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@current_word</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">index</span>(<span class="ruby-ivar">@current_word</span>)
+          <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">st</span>),
+            <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>
+          }
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@current_word</span> = <span class="ruby-ivar">@current_word</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>] <span class="ruby-comment"># tai ultimul caracter din cuvant</span>
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">states</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-comment"># ma opresc daca nu mai am stari in care sa ma intorc</span>
+      <span class="ruby-keyword">end</span>
+                              <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">state</span>),
+                                                  <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;eroare la linia #{@line}: #{@current_word}&quot;</span>
+                              }
+    <span class="ruby-keyword">else</span> <span class="ruby-comment"># daca starea in care s-a ajuns nu este stare de eroare si fisierul s-a terminat</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">63</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">64</span> <span class="ruby-comment"># ma aflu intr-un comentariu multiline care nu s-a inchis</span>
+        <span class="ruby-ivar">@current_word</span> = <span class="ruby-identifier">aux</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">65</span> 
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># s-a terminat fisierul cu spatii goale consumate sau comentariu</span>
+      <span class="ruby-keyword">end</span>
+
+                              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">final?</span>(<span class="ruby-identifier">state</span>) <span class="ruby-comment"># verific daca starea de in care s-a ajuns este finala</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@current_word</span>)
+          <span class="ruby-ivar">@symbol_table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@current_word</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">index</span>(<span class="ruby-ivar">@current_word</span>)
+                                      <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">state</span>),
+                                              <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>
+                                      } 
+                              <span class="ruby-keyword">else</span> <span class="ruby-comment"># trebuie sa ma intorc la ultima stare finala intalnita</span>
+        <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">st</span> = <span class="ruby-identifier">states</span>.<span class="ruby-identifier">pop</span>()
+
+          <span class="ruby-comment"># if st.nil? or st == 48 or st == 50 or st == 54 or st == 52 or st == 51</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">st</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">48</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">54</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">52</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">51</span> <span class="ruby-comment"># ma aflu intr-un string sau char care nu s-a inchis corect</span>
+            <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-value">-1</span>),
+                    <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;eroare la linia #{@line}: #{@current_word}&quot;</span>
+            }
+          <span class="ruby-keyword">end</span>
+
+          <span class="ruby-ivar">@poz</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">final?</span>(<span class="ruby-identifier">st</span>)
+            <span class="ruby-ivar">@current_word</span> = <span class="ruby-ivar">@current_word</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@current_word</span>)
+              <span class="ruby-ivar">@symbol_table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@current_word</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">index</span>(<span class="ruby-ivar">@current_word</span>)
+            <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">st</span>),
+                    <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>
+            }
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@current_word</span> = <span class="ruby-ivar">@current_word</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]
+          <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">states</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">state</span>),
+                <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;eroare la linia #{@line}: #{@current_word}&quot;</span>
+        }
+                              <span class="ruby-keyword">end</span>
+                      <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-comment"># inseamna ca fisierul nu s-a terminat, dar s-a ajuns intr-o stare de eroare</span>
+       <span class="ruby-comment"># presupune sa ne intoarcem pana la ultima stare finala intalnita</span>
+    <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">st</span> = <span class="ruby-identifier">states</span>.<span class="ruby-identifier">pop</span>()
+      <span class="ruby-ivar">@poz</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>
+        <span class="ruby-ivar">@line</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+        <span class="ruby-comment"># if st == 48 or st == 50 or st == 51 or st == 54 or st == 52</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">48</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">50</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">51</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">54</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">st</span> <span class="ruby-operator">==</span> <span class="ruby-value">52</span>
+          <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">state</span>),
+                  <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;eroare la linia #{@line}: #{@current_word}&quot;</span>
+          }
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@automat</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">final?</span>(<span class="ruby-identifier">st</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@current_word</span>)
+          <span class="ruby-ivar">@symbol_table</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@current_word</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@symbol_table</span>.<span class="ruby-identifier">index</span>(<span class="ruby-ivar">@current_word</span>)
+        <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">st</span>),
+                <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>
+        }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@current_word</span> = <span class="ruby-ivar">@current_word</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">-1</span>]
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">states</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+
+      <span class="ruby-keyword">return</span> {<span class="ruby-value">:token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@type_analyzer</span>.<span class="ruby-identifier">token_type</span>(<span class="ruby-ivar">@current_word</span>, <span class="ruby-identifier">state</span>),
+              <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;eroare la linia #{@line}: #{@current_word}&quot;</span>
+      }
+
+              <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_buffer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_buffer</span><span
+            class="method-args">(file_in)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_buffer-source">
+            <pre><span class="ruby-comment"># File lexer.rb, line 163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_buffer</span>(<span class="ruby-identifier">file_in</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">c</span> = <span class="ruby-identifier">file_in</span>.<span class="ruby-identifier">getc</span>
+    <span class="ruby-ivar">@buffer</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_escape</span><span
+            class="method-args">(input)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_escape-source">
+            <pre><span class="ruby-comment"># File lexer.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_escape</span>(<span class="ruby-identifier">input</span>)
+        <span class="ruby-identifier">rez</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-identifier">input</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\n&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\\&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;n&quot;</span>
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\t&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\\&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;t&quot;</span>
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;\0&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;\\&quot;</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;0&quot;</span>
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">rez</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">char</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">rez</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-must_clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">must_clear</span><span
+            class="method-args">(state)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="must_clear-source">
+            <pre><span class="ruby-comment"># File lexer.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">must_clear</span>(<span class="ruby-identifier">state</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">63</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">64</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">state</span> <span class="ruby-operator">==</span> <span class="ruby-value">65</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

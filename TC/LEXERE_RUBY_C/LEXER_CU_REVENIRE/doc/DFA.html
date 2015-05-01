@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class DFA - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-print_automaton">#print_automaton</a>
+    
+    <li ><a href="#method-i-reset_dfa">#reset_dfa</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-DFA">
+  <h1 id="class-DFA" class="class">
+    class DFA
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-m" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">m</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(start_state)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File dfa.rb, line 5</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">start_state</span>)
+            <span class="ruby-ivar">@m</span> = <span class="ruby-constant">FiniteAutomaton</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">start_state</span>)
+            <span class="ruby-comment"># ==============================</span>
+            <span class="ruby-comment">#                     tranzitii</span>
+            <span class="ruby-comment"># ==============================</span>
+
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 0 cu _ in 1</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">1</span>, <span class="ruby-string">&#39;_&#39;</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 1 cu _ in 1</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;$&#39;</span>, <span class="ruby-value">1</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">1</span>, <span class="ruby-string">&#39;$&#39;</span>, <span class="ruby-value">1</span>)
+
+            (<span class="ruby-string">&#39;a&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;z&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 0 cu litera in starea 1</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 1 cu litera in starea 1</span>
+            <span class="ruby-keyword">end</span>
+
+            (<span class="ruby-string">&#39;A&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;Z&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 0 cu litera in starea 1</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 1 cu litera in starea 1</span>
+            <span class="ruby-keyword">end</span>
+
+            (<span class="ruby-string">&#39;0&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;9&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">1</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">1</span>) <span class="ruby-comment"># din 1 cu cifra in 1</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">c</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;0&#39;</span>
+                            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">3</span>) <span class="ruby-comment"># din 0 cu cifra in 3</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">3</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">3</span>) <span class="ruby-comment"># din 3 cu cifra in 3</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">4</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">6</span>) <span class="ruby-comment"># din 4 cu cifra in 6</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">6</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">6</span>) <span class="ruby-comment"># din 6 cu cifra in 6</span>
+                    <span class="ruby-comment"># @m.add_transition(10, c, 6)</span>
+                    <span class="ruby-comment"># @m.add_transition(11, c, 6)</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">10</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">74</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">11</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">73</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">7</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">8</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">8</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">8</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">60</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">61</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">61</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">61</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">71</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">74</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">72</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">73</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">73</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">73</span>)
+  <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">74</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">74</span>)
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">3</span>, <span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">4</span>) <span class="ruby-comment"># din 3 cu . in 4</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">3</span>, <span class="ruby-string">&#39;e&#39;</span>, <span class="ruby-value">10</span>) <span class="ruby-comment"># din 3 cu e in 10</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">10</span>, <span class="ruby-string">&#39;+&#39;</span>, <span class="ruby-value">11</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">10</span>, <span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-value">11</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">7</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">8</span>, <span class="ruby-string">&#39;e&#39;</span>, <span class="ruby-value">10</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">6</span>, <span class="ruby-string">&#39;e&#39;</span>, <span class="ruby-value">71</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">4</span>, <span class="ruby-string">&#39;e&#39;</span>, <span class="ruby-value">71</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">71</span>, <span class="ruby-string">&#39;+&#39;</span>, <span class="ruby-value">72</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">71</span>, <span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-value">72</span>)
+
+
+
+            <span class="ruby-comment"># |, ||, |=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;|&#39;</span>, <span class="ruby-value">25</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">25</span>, <span class="ruby-string">&#39;|&#39;</span>, <span class="ruby-value">26</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">25</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">27</span>)
+
+            <span class="ruby-comment"># &amp;, &amp;&amp;, &amp;=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;&amp;&#39;</span>, <span class="ruby-value">22</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">22</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">23</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">22</span>, <span class="ruby-string">&#39;&amp;&#39;</span>, <span class="ruby-value">24</span>)
+
+            <span class="ruby-comment"># ^, ^=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&quot;^&quot;</span>, <span class="ruby-value">28</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">28</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">29</span>)
+
+            <span class="ruby-comment"># !, !=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;!&#39;</span>, <span class="ruby-value">30</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">30</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">31</span>)
+
+            <span class="ruby-comment"># &lt;, &lt;&lt;, &lt;&lt;=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;&lt;&#39;</span>, <span class="ruby-value">32</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">32</span>, <span class="ruby-string">&#39;&lt;&#39;</span>, <span class="ruby-value">33</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">32</span>, <span class="ruby-string">&#39;&lt;&#39;</span>, <span class="ruby-value">34</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">33</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">69</span>)
+
+            <span class="ruby-comment"># &gt;, &gt;&gt;, &gt;&gt;=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;&gt;&#39;</span>, <span class="ruby-value">35</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">35</span>, <span class="ruby-string">&#39;&gt;&#39;</span>, <span class="ruby-value">36</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">35</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">37</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">36</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">70</span>)
+
+            <span class="ruby-comment"># =, ==</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">38</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">38</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">39</span>)
+
+            <span class="ruby-comment"># +, ++, +=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;+&#39;</span>, <span class="ruby-value">12</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">12</span>, <span class="ruby-string">&#39;+&#39;</span>, <span class="ruby-value">13</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">12</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">14</span>)
+
+            <span class="ruby-comment"># -, --, -=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-value">15</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">15</span>, <span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-value">16</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">15</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">17</span>)
+
+            <span class="ruby-comment"># * , *=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;*&#39;</span>, <span class="ruby-value">18</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">18</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">19</span>)
+
+            <span class="ruby-comment"># /, /=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-value">20</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">20</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">21</span>)
+
+            <span class="ruby-comment"># %, %=</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;%&#39;</span>, <span class="ruby-value">40</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">40</span>, <span class="ruby-string">&#39;=&#39;</span>, <span class="ruby-value">41</span>)
+
+            <span class="ruby-comment"># [] () {} </span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;[&#39;</span>, <span class="ruby-value">42</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;]&#39;</span>, <span class="ruby-value">43</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;(&#39;</span>, <span class="ruby-value">44</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&quot;)&quot;</span>, <span class="ruby-value">45</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;{&#39;</span>, <span class="ruby-value">46</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;}&#39;</span>, <span class="ruby-value">47</span>)
+
+            <span class="ruby-comment"># STRING SI CHAR</span>
+            <span class="ruby-comment"># string</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;&quot;&#39;</span>, <span class="ruby-value">48</span>)
+            (<span class="ruby-value">32</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>  <span class="ruby-comment"># pot avea orice caracter in stringul ala</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">34</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">92</span>
+                            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">48</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">48</span>)
+    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">101</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">101</span>) <span class="ruby-comment">#aici</span>
+                    <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">48</span>, <span class="ruby-string">&#39;&quot;&#39;</span>, <span class="ruby-value">49</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">101</span>, <span class="ruby-string">&#39;&quot;&#39;</span>, <span class="ruby-value">49</span>)
+               <span class="ruby-comment"># cu caractere de escape</span>
+
+               <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">48</span>, <span class="ruby-string">&#39;\&#39;</span>, <span class="ruby-value">50</span>)
+            <span class="ruby-string">&quot;n,t,r,0,\&quot;,&#39;,\\&quot;</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span> <span class="ruby-comment"># caractere de escape</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">50</span>, <span class="ruby-identifier">char</span>, <span class="ruby-value">48</span>)
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment"># CHARS</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&quot;&#39;&quot;</span>, <span class="ruby-value">51</span>)
+            (<span class="ruby-value">32</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>  <span class="ruby-comment"># pot avea orice caracter in stringul ala</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">39</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">92</span>
+                            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">51</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">52</span>)
+                    <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">51</span>, <span class="ruby-string">&#39;\&#39;</span>, <span class="ruby-value">54</span>)
+            <span class="ruby-string">&quot;n,t,r,0,\&quot;,&#39;,\\&quot;</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;,&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span><span class="ruby-operator">|</span> <span class="ruby-comment"># caractere de escape</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">54</span>, <span class="ruby-identifier">char</span>, <span class="ruby-value">52</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">52</span>, <span class="ruby-string">&quot;&#39;&quot;</span>, <span class="ruby-value">53</span>)
+
+            <span class="ruby-comment"># numere in HEXA</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;0&#39;</span>, <span class="ruby-value">59</span>)
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">59</span>, <span class="ruby-string">&#39;x&#39;</span>, <span class="ruby-value">60</span>)
+            (<span class="ruby-string">&#39;a&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;f&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">60</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">61</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">61</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">61</span>)
+            <span class="ruby-keyword">end</span>
+            (<span class="ruby-string">&#39;A&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;F&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">letter</span><span class="ruby-operator">|</span>
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">60</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">61</span>)
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">61</span>, <span class="ruby-identifier">letter</span>, <span class="ruby-value">61</span>)
+            <span class="ruby-keyword">end</span>
+
+            <span class="ruby-comment">#numere in octal</span>
+            (<span class="ruby-string">&#39;0&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;8&#39;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">59</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">62</span>) 
+                    <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">62</span>, <span class="ruby-identifier">c</span>, <span class="ruby-value">62</span>)
+            <span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># tratare spatii goale</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39; &#39;</span>, <span class="ruby-identifier">start_state</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-identifier">start_state</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&quot;\t&quot;</span>, <span class="ruby-identifier">start_state</span>)
+
+<span class="ruby-comment"># , ; : . ? ...</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;,&#39;</span>, <span class="ruby-value">55</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;;&#39;</span>, <span class="ruby-value">56</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;:&#39;</span>, <span class="ruby-value">57</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">7</span>, <span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">67</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">67</span>, <span class="ruby-string">&#39;.&#39;</span>, <span class="ruby-value">68</span>)
+
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;?&#39;</span>, <span class="ruby-value">66</span>)
+
+<span class="ruby-comment"># comentarii multiline</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">20</span>, <span class="ruby-string">&#39;*&#39;</span>, <span class="ruby-value">63</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">63</span>, <span class="ruby-string">&#39;*&#39;</span>, <span class="ruby-value">64</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">64</span>, <span class="ruby-string">&#39;*&#39;</span>, <span class="ruby-value">64</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">64</span>, <span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-identifier">start_state</span>)
+(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">42</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">63</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">63</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">42</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">47</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">64</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">63</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">64</span>, <span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-identifier">start_state</span>)
+
+<span class="ruby-comment"># AICI AM MODIFICAT</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">50</span>, <span class="ruby-string">&quot;\n&quot;</span>, <span class="ruby-value">101</span>)
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">101</span>, <span class="ruby-string">&quot;\\&quot;</span>, <span class="ruby-value">50</span>)
+<span class="ruby-comment"># AICI FINAL</span>
+
+<span class="ruby-comment"># comentarii single line</span>
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">20</span>, <span class="ruby-string">&#39;/&#39;</span>, <span class="ruby-value">65</span>)
+(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">!=</span> <span class="ruby-value">10</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">65</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-value">65</span>)
+    <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-value">65</span>, <span class="ruby-identifier">i</span>.<span class="ruby-identifier">chr</span>, <span class="ruby-identifier">start_state</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-ivar">@m</span>.<span class="ruby-identifier">add_transition</span>(<span class="ruby-identifier">start_state</span>, <span class="ruby-string">&#39;#&#39;</span>, <span class="ruby-value">100</span>) <span class="ruby-comment"># preprocessor</span>
+
+            <span class="ruby-comment"># ==============================</span>
+            <span class="ruby-comment">#               STARI FINALE</span>
+            <span class="ruby-comment"># ==============================</span>
+            <span class="ruby-identifier">final_states</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">6</span>, <span class="ruby-value">8</span>, <span class="ruby-value">9</span>, <span class="ruby-value">12</span>, <span class="ruby-value">13</span>, <span class="ruby-value">14</span>, <span class="ruby-value">15</span>, <span class="ruby-value">16</span>, <span class="ruby-value">17</span>, <span class="ruby-value">18</span>, <span class="ruby-value">19</span>, <span class="ruby-value">20</span>, <span class="ruby-value">21</span>, <span class="ruby-value">25</span>, <span class="ruby-value">26</span>, <span class="ruby-value">27</span>, <span class="ruby-value">22</span>, <span class="ruby-value">23</span>, <span class="ruby-value">24</span>, <span class="ruby-value">28</span>,
+                <span class="ruby-value">29</span>, <span class="ruby-value">30</span>, <span class="ruby-value">31</span>, <span class="ruby-value">32</span>, <span class="ruby-value">33</span>, <span class="ruby-value">34</span>, <span class="ruby-value">35</span>, <span class="ruby-value">36</span>, <span class="ruby-value">37</span>, <span class="ruby-value">38</span>, <span class="ruby-value">39</span>, <span class="ruby-value">40</span>,<span class="ruby-value">41</span>, <span class="ruby-value">42</span>, <span class="ruby-value">43</span>, <span class="ruby-value">44</span>, <span class="ruby-value">45</span>, <span class="ruby-value">46</span>, <span class="ruby-value">47</span>, <span class="ruby-value">49</span>, <span class="ruby-value">53</span>, <span class="ruby-value">55</span>,
+                <span class="ruby-value">56</span>, <span class="ruby-value">57</span>, <span class="ruby-value">7</span>, <span class="ruby-value">59</span>, <span class="ruby-value">61</span>, <span class="ruby-value">62</span>, <span class="ruby-value">66</span>, <span class="ruby-value">68</span>, <span class="ruby-value">69</span>, <span class="ruby-value">70</span>, <span class="ruby-value">73</span>, <span class="ruby-value">74</span>, <span class="ruby-value">100</span>
+            ]
+            <span class="ruby-identifier">final_states</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">state</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">accept_states</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">state</span> }
+
+
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-print_automaton" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print_automaton</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print_automaton-source">
+            <pre><span class="ruby-comment"># File dfa.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">print_automaton</span>
+        <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">x_visualize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reset_dfa" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_dfa</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reset_dfa-source">
+            <pre><span class="ruby-comment"># File dfa.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_dfa</span>()
+        <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">current_state</span> = <span class="ruby-ivar">@m</span>.<span class="ruby-identifier">start_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

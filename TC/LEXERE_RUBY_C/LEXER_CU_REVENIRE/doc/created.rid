@@ -1,0 +1,18 @@
+Fri, 01 May 2015 09:15:08 +0300
+./lexer.rb	Wed, 29 Apr 2015 12:24:47 +0300
+./type_analyzer.rb	Sun, 26 Apr 2015 17:09:55 +0300
+./test.c	Thu, 30 Apr 2015 18:13:01 +0300
+./dfa.rb	Wed, 29 Apr 2015 16:21:48 +0300
+./finite-automaton/operations.rb	Thu, 23 Apr 2015 22:51:01 +0300
+./finite-automaton/presentation.rb	Thu, 23 Apr 2015 22:51:01 +0300
+./finite-automaton/dsl.rb	Thu, 23 Apr 2015 22:51:01 +0300
+./finite-automaton/state.rb	Thu, 23 Apr 2015 22:51:01 +0300
+./finite-automaton.rb	Sat, 25 Apr 2015 10:59:04 +0300
+./main.rb	Thu, 30 Apr 2015 16:04:04 +0300
+./output.txt	Thu, 30 Apr 2015 18:13:06 +0300
+./binar.c	Wed, 29 Apr 2015 19:07:25 +0300
+./print.txt	Sun, 26 Apr 2015 12:45:44 +0300
+./tests/test_c4.txt	Tue, 28 Apr 2015 20:23:31 +0300
+./tests/test_c1.txt	Tue, 10 Feb 2015 16:07:26 +0200
+./tests/test_c2.txt	Wed, 29 Apr 2015 11:27:44 +0300
+./tests/test_c3.c	Tue, 10 Feb 2015 16:07:26 +0200
